@@ -18,7 +18,7 @@ app.get('/', function(request, response) {
     if (err) {
       return console.log(err);
     }
-    data = data.replace(/\$OG_URL/g, 'https://khobauScoin.splay.vn/');
+    data = data.replace(/\$OG_URL/g, 'https://ghepchuscoin.splay.vn/');
     data = data.replace(/\$OG_TYPE/g, "Game");
     data = data.replace(/\$OG_TITLE/g, 'Ghép chữ đổi Vàng - Đón Tết rộn ràng');
     data = data.replace(/\$OG_DESCRIPTION/g, "Từ 21.01 - 03.02 nạp thẻ Scoin vào game để ghép chữ đổi thưởng 8 chỉ Vàng SJC 9999. SK Dành cho tất cả game thủ VTC Mobile");
