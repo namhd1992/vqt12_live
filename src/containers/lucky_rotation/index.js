@@ -1461,8 +1461,8 @@ class Lucky_Rotation extends React.Component {
 				Tích lũy đủ 50,000Đ sẽ nhận 1 Chữ.</p>
 						<div class="row bg-line-napthescoin p-3 mx-1">          
 						<div class="col-sm-8">
-							<h3 class="font-arial font-13">Thẻ Scoin đã nạp vào Game: 10,005,000đ</h3>
-							<p class="font-arial font-13 text-danger font-weight-bold mb-0">Nạp thêm 45,000Đ bằng thẻ Scoin để nhận 1 Chữ</p>
+							<h3 class="font-arial font-13">Thẻ Scoin đã nạp vào Game: {turnsBuyInfo.scoinTopupWallet ? this.numberWithCommas(turnsBuyInfo.scoinTopupWallet) : 0}Đ</h3>
+							<p class="font-arial font-13 text-danger font-weight-bold mb-0">Nạp thêm {turnsBuyInfo.scoinBalanceRounding ? this.numberWithCommas(turnsBuyInfo.scoinBalanceRounding): 0}Đ bằng thẻ Scoin để nhận 1 Chữ</p>
 						</div>
 						<div class="col-sm-4 text-center"><a href="https://scoin.vn/nap-game" title="Hướng dẫn mua thẻ Scoin" target="_blank"><img src= {btn_napthescoin} alt="Nạp thẻ scoin" class="img-fluid" style={{marginLeft:20}} width="120" /></a></div>
 						</div>
