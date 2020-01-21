@@ -632,12 +632,8 @@ class Lucky_Rotation extends React.Component {
 				this.setState({message_error:'Sự kiện chưa diễn ra.'})
 			}
 			if(live){
-				if(turnsFree>0){
-					$('#mo1chu').modal('show');
-					this.get1Word();
-				}else{
-					$('#myModal6').modal('show');
-				}
+				$('#mo1chu').modal('show');
+				this.get1Word();
 			}
 			if(finish){
 				$('#myModal11').modal('show');
@@ -658,12 +654,8 @@ class Lucky_Rotation extends React.Component {
 				this.setState({message_error:'Sự kiện chưa diễn ra.'})
 			}
 			if(live){
-				if(turnsFree>0){
-					$('#mo10chu').modal('show');
-					this.get10Word();
-				}else{
-					$('#myModal6').modal('show');
-				}
+				$('#mo10chu').modal('show');
+				this.get10Word();
 			}
 			if(finish){
 				$('#myModal11').modal('show');
@@ -677,64 +669,72 @@ class Lucky_Rotation extends React.Component {
 	}
 
 	get1Word=()=>{
+		const {turnsFree}=this.state;
 		var user = JSON.parse(localStorage.getItem("user"));
 		const words=[{name:'chao', img:chao_gif}, {name:'don', img:don_gif},{name:'canh', img:canh_gif},{name:'ti', img:ty_gif},{name:'tet',img:tet_gif}]
 		setTimeout(()=>{
 			this.setState({showOneWord:true})
 		}, 1000)
-		this.props.openItem(119,1, user.access_token).then(()=>{
-			var data=this.props.dataOpenItem;
-			if(data.status==='01'){
-				console.log(data)
-				var pos = words.map(function(e) { return e.name; }).indexOf(data.data[0].item.keyName);
-				this.setState({oneWord:words[pos].img, showOneWord:false})
-				this.getDetailData();
-			}
-			
-		})
-		
+		if(turnsFree>0){
+			this.props.openItem(119,1, user.access_token).then(()=>{
+				var data=this.props.dataOpenItem;
+				if(data.status==='01'){
+					console.log(data)
+					var pos = words.map(function(e) { return e.name; }).indexOf(data.data[0].item.keyName);
+					this.setState({oneWord:words[pos].img, showOneWord:false})
+					this.getDetailData();
+				}
+				
+			})
+		}else{
+			$('#mo1chu').modal('hide');
+			$('#myModal6').modal('show');
+		}
 	}
 
 	get10Word=()=>{
-
+		const {turnsFree}=this.state;
 		var user = JSON.parse(localStorage.getItem("user"));
 		const words=[{name:'chao', img:chao}, {name:'don', img:don},{name:'canh', img:canh},{name:'ti', img:ty},{name:'tet',img:tet}]
 		const word_gif=[{name:'chao', img:chao_gif}, {name:'don', img:don_gif},{name:'canh', img:canh_gif},{name:'ti', img:ty_gif},{name:'tet',img:tet_gif}]
 		var listWord=[];
-		
-		this.props.openItem(119,10, user.access_token).then(()=>{
-			var data=this.props.dataOpenItem;
-			var k=0;
-			var old_pos=0;
-			if(data.status==='01'){
-				var len= data.data.length;
-				this.getDetailData();
-				this.setState({isOpenTen:true})
-				for (let i = 0; i < len; i++) {
-					listWord.push(back)
-					this.setState({listChu:listWord})
-				}
-				var myVar=setInterval(()=>{
-					if(len > k){
-						var pos = word_gif.map(function(e) { return e.name; }).indexOf(data.data[k].item.keyName);
-						var word=word_gif[pos].img;
-						listWord[k]=word;
-						if(k>0){
-							var word_statis=words[old_pos].img;
-							listWord[k-1]=word_statis;
-						}
-						
+		if(turnsFree>0){
+			this.props.openItem(119,10, user.access_token).then(()=>{
+				var data=this.props.dataOpenItem;
+				var k=0;
+				var old_pos=0;
+				if(data.status==='01'){
+					var len= data.data.length;
+					this.getDetailData();
+					this.setState({isOpenTen:true})
+					for (let i = 0; i < len; i++) {
+						listWord.push(back)
 						this.setState({listChu:listWord})
-						k=k+1;
-						old_pos=pos
-					}else{
-						this.setState({isOpenTen:false})
-						clearInterval(myVar)
 					}
-				}, 1000)				
-			}
-			
-		});
+					var myVar=setInterval(()=>{
+						if(len > k){
+							var pos = word_gif.map(function(e) { return e.name; }).indexOf(data.data[k].item.keyName);
+							var word=word_gif[pos].img;
+							listWord[k]=word;
+							if(k>0){
+								var word_statis=words[old_pos].img;
+								listWord[k-1]=word_statis;
+							}
+							
+							this.setState({listChu:listWord})
+							k=k+1;
+							old_pos=pos
+						}else{
+							this.setState({isOpenTen:false})
+							clearInterval(myVar)
+						}
+					}, 1000)				
+				}
+			});
+		}else{
+			$('#mo10chu').modal('hide');
+			$('#myModal6').modal('show');
+		}
 	}
 
 	latTiep10Chu=()=>{
