@@ -1564,14 +1564,16 @@ class Lucky_Rotation extends React.Component {
 				<div class="modal-dialog">
 					<div class="modal-content bg-transparent">
 						<div class="modal-body pt-0 text-center">
-							{listChu.map((obj, key)=>{
-								return(
-									<div key={key} style={{float:'left'}} className="div-img-word">
-										<img src={obj} class="img-fluid" style={{margin:5}} className="img-word" />
-									</div>
-								)
-								
-							})}
+							<div style={{display: "inline-block"}}>
+								{listChu.map((obj, key)=>{
+									return(
+										<div key={key} style={{float:'left'}} className="div-img-word">
+											<img src={obj} class="img-fluid" style={{margin:5}} className="img-word" />
+										</div>
+									)
+									
+								})}
+							</div>
 							{/* <p><img src={tet} class="img-fluid text-center" alt="Tết" /></p> */}
 							{(isOpenTen) ? (<p><a title="Lật 10 chữ"><img src= {btn_lat10chu} class="img-fluid text-center" style={{opacity :"0.7"}} alt="Lật 10 chứ" /></a></p>) : (<p><a title="Lật 10 chữ"><img src= {btn_lat10chu} class="img-fluid text-center" style={{cursor:"pointer"}} alt="Lật 10 chứ" onClick={this.latTiep10Chu} /></a></p>)}
 							{(isOpenTen) ? (<p><a class="text-danger text-center font-arial" style={{opacity :"0.7"}}>Đóng</a></p>) : (<p><a class="text-danger text-center font-arial" style={{cursor:"pointer"}} data-dismiss="modal" onClick={this.closeModalTenWord}>Đóng</a></p>   )}
