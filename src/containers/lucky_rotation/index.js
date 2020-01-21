@@ -766,8 +766,9 @@ class Lucky_Rotation extends React.Component {
 	}
 
 	openPopupBonus=()=>{
-		$("#giaithuong").modal('show');
 		$("#thele").modal('hide');
+		$("#giaithuong").modal('show');
+		
 	}
 
 	openExchangeWord=(n)=>{
