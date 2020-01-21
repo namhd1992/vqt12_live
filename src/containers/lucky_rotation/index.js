@@ -1072,7 +1072,7 @@ class Lucky_Rotation extends React.Component {
 						<p class="font-arial text-brown font-13" style={{margin:"30px 0px"}}>Dùng thẻ Scoin nạp thẳng vào các game do VTC Mobile phát hành <span class="font-arial" style={{fontWeight:'bold'}}>tích lũy đủ 50,000Đ sẽ nhận 1 Chữ.</span></p>
 						<div class="bg-line-napthescoin p-3 mx-1">
 							<h3 class="font-arial font-13">Thẻ Scoin đã nạp từ ví vào Game: {turnsBuyInfo.scoinTopupCardToGame ? this.numberWithCommas(turnsBuyInfo.scoinTopupCardToGame) : 0}Đ</h3>
-							<p class="font-arial font-13 text-danger font-weight-bold mb-0">Nạp thêm {turnsBuyInfo.scoinBalanceRounding ? this.numberWithCommas(turnsBuyInfo.scoinBalanceRounding): 0}Đ bằng thẻ Scoin để nhận 1 Chữ</p>
+							<p class="font-arial font-13 text-danger font-weight-bold mb-0">Nạp thêm {turnsBuyInfo.scoinBalanceRounding ? this.numberWithCommas(turnsBuyInfo.scoinBalanceRounding): this.numberWithCommas(50000)}Đ bằng thẻ Scoin để nhận 1 Chữ</p>
 						</div>
 						<div className="img-napthenhanchu">
 							<img src={btn_napthescoin} alt="Đóng" class="img-fluid" style={{cursor:"pointer"}} onClick={this.openTabNapScoin}/>
@@ -1462,7 +1462,7 @@ class Lucky_Rotation extends React.Component {
 						<div class="row bg-line-napthescoin p-3 mx-1">          
 						<div class="col-sm-8">
 							<h3 class="font-arial font-13">Thẻ Scoin đã nạp vào Game: {turnsBuyInfo.scoinTopupCardToGame ? this.numberWithCommas(turnsBuyInfo.scoinTopupCardToGame) : 0}Đ</h3>
-							<p class="font-arial font-13 text-danger font-weight-bold mb-0">Nạp thêm {turnsBuyInfo.scoinBalanceRounding ? this.numberWithCommas(turnsBuyInfo.scoinBalanceRounding): 0}Đ bằng thẻ Scoin để nhận 1 Chữ</p>
+							<p class="font-arial font-13 text-danger font-weight-bold mb-0">Nạp thêm {turnsBuyInfo.scoinBalanceRounding ? this.numberWithCommas(turnsBuyInfo.scoinBalanceRounding): this.numberWithCommas(50000)}Đ bằng thẻ Scoin để nhận 1 Chữ</p>
 						</div>
 						<div class="col-sm-4 text-center"><a href="https://scoin.vn/nap-game" title="Hướng dẫn mua thẻ Scoin" target="_blank"><img src= {btn_napthescoin} alt="Nạp thẻ scoin" class="img-fluid" style={{marginLeft:20}} width="120" /></a></div>
 						</div>
