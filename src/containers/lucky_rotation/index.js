@@ -632,8 +632,12 @@ class Lucky_Rotation extends React.Component {
 				this.setState({message_error:'Sự kiện chưa diễn ra.'})
 			}
 			if(live){
-				$('#mo1chu').modal('show');
-				this.get1Word();
+				if(turnsFree>0){
+					$('#mo1chu').modal('show');
+					this.get1Word();
+				}else{
+					$('#myModal6').modal('show');
+				}
 			}
 			if(finish){
 				$('#myModal11').modal('show');
@@ -654,8 +658,13 @@ class Lucky_Rotation extends React.Component {
 				this.setState({message_error:'Sự kiện chưa diễn ra.'})
 			}
 			if(live){
-				$('#mo10chu').modal('show');
-				this.get10Word();
+				if(turnsFree>0){
+					$('#mo10chu').modal('show');
+					this.get10Word();
+				}else{
+					
+					$('#myModal6').modal('show');
+				}
 			}
 			if(finish){
 				$('#myModal11').modal('show');
@@ -687,7 +696,7 @@ class Lucky_Rotation extends React.Component {
 				
 			})
 		}else{
-			$('#mo1chu').modal('hide');
+			$('#mo1chu').modal('show');
 			$('#myModal6').modal('show');
 		}
 	}
