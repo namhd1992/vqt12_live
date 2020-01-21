@@ -802,34 +802,22 @@ class Lucky_Rotation extends React.Component {
 			this.setState({message_error:'Sự kiện chưa diễn ra.'})
 		}
 		if(live){
-			// if(dataProfile.phoneNumber !==null){
-			// 	this.props.exchangeItem(119,luckySpinGiftId, numberWordChange, user.access_token).then(()=>{
-			// 		var data=this.props.dataExchangeItem;
-			// 		if(data.status==='01'){
-			// 			this.setState({scoinPlus:data.data.value, numberWordChange:0, scoinPlus:scoinPlus},()=>{
-			// 				$('#doithuong').modal('hide');
-			// 				$('#chucmung').modal('show');
-			// 			})
-			// 			this.getDetailData();
-			// 		}
-					
-			// 	})
-			// }else{
-			// 	$('#myModal8').modal('show');
-			// }
-			if(numberWordChange>0){
-				this.props.exchangeItem(119,luckySpinGiftId, numberWordChange, user.access_token).then(()=>{
-					var data=this.props.dataExchangeItem;
-					if(data.status==='01'){
-						console.log(data.data.value)
-						this.setState({scoinPlusSuccess:data.data.value, numberWordChange:0, scoinPlus:scoinPlus, typeGift:data.data.typeGift},()=>{
-							$('#doithuong1').modal('hide');
-							$('#chucmung').modal('show');
-						})
-						this.getDetailData();
-					}
-					
-				})
+			if(dataProfile.phoneNumber !==null){
+				if(numberWordChange>0){
+					this.props.exchangeItem(119,luckySpinGiftId, numberWordChange, user.access_token).then(()=>{
+						var data=this.props.dataExchangeItem;
+						if(data.status==='01'){
+							this.setState({scoinPlusSuccess:data.data.value, numberWordChange:0, scoinPlus:scoinPlus, typeGift:data.data.typeGift},()=>{
+								$('#doithuong1').modal('hide');
+								$('#chucmung').modal('show');
+							})
+							this.getDetailData();
+						}
+						
+					})
+				}
+			}else{
+				$('#myModal8').modal('show');
 			}
 		}
 		if(finish){
