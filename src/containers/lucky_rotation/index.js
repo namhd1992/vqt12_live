@@ -484,7 +484,7 @@ class Lucky_Rotation extends React.Component {
 
 	getVinhDanh=(pageNumber)=>{
 		const {limit}=this.state;
-		this.props.getVinhDanh(120, 10, (pageNumber-1)).then(()=>{
+		this.props.getVinhDanh(119, 10, (pageNumber-1)).then(()=>{
 			var data=this.props.dataVinhDanh;
 			if(data!==undefined){
 				if(data.status==='01'){	
